@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "Platzi",
+			"path": "..\\..\\.."
+		},
+		{
+			"name": "todomachinelist",
+			"path": "..\\..\\..\\CursoReact.js\\todomachinelist"
+		}
+	],
+	"settings": {
+		"compile-hero.disable-compile-files-on-did-save-code": true,
+		"git.ignoreLimitWarning": true,
+		"liveServer.settings.multiRootWorkspaceName": "Platzi"
+	}
+}
