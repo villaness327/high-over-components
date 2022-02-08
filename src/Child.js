@@ -4,12 +4,12 @@ import React from 'react';
 
 function withRouter(Wrappedcomponent){//Componente
 
-    const hoc=class extends React.Component{
+    const hoc=class extends React.Component{//Clase donde se crea un componente
 
-                        constructor(props){
+                        constructor(props){ //Se reciben las props
                   
                             super(props)
-                            this.state={
+                            this.state={  //Se crea un estado
                                 loading:false,
 
                              }; 
@@ -20,8 +20,8 @@ function withRouter(Wrappedcomponent){//Componente
                       return(
 
                           <Wrappedcomponent   
-                          {...this.props}
-                    
+                          {...this.props}  //Se transfieren las props y el estado al componente
+                          estado= {this.state.loading}                    
                           />
                           //   propiedad={{valor:1}}
                           //   saludo={props.saludo}
@@ -34,7 +34,7 @@ function withRouter(Wrappedcomponent){//Componente
         
       }  
 
-      return hoc;      
+      return hoc; //Se retorna el componente     
   }  
   
 
@@ -43,7 +43,8 @@ function withRouter(Wrappedcomponent){//Componente
 
       return (
       <div><h1>Este es el contenido de componente Child:<br/>
-      {props.saludo} {props.nombre} {props.apellido}</h1></div>);
+      {props.saludo} {props.nombre} {props.apellido} {props.estado}</h1></div>
+      );
 
   }
 
