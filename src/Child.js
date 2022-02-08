@@ -4,27 +4,47 @@ import React from 'react';
 
 function withRouter(Wrappedcomponent){//Componente
 
-      return function Nuevocomponente(props){ //Se crea nuevo componente, y se reciben las props
+    const hoc=class extends React.Component{
 
-        return(
+                        constructor(props){
+                  
+                            super(props)
+                            this.state={
+                                loading:false,
 
-            <Wrappedcomponent   
-            {...props}
-            />
-            //   propiedad={{valor:1}}
-            //   saludo={props.saludo}
-            //   nombre={props.nombre}
-            //   apellido={props.apellido} 
-            // />
-        );
-      }
-}
+                             }; 
+                        }
+
+                render(){
+
+                      return(
+
+                          <Wrappedcomponent   
+                          {...this.props}
+                    
+                          />
+                          //   propiedad={{valor:1}}
+                          //   saludo={props.saludo}
+                          //   nombre={props.nombre}
+                          //   apellido={props.apellido} 
+                          // />
+                      );             
+                } 
+        
+        
+      }  
+
+      return hoc;      
+  }  
+  
 
 
-function Child(props) {
-  return (
-  <div><h1>Este es el contenido de componente Child:<br/>
-  {props.saludo} {props.nombre} {props.apellido}</h1></div>);
-}
+ function Child(props) {
+
+      return (
+      <div><h1>Este es el contenido de componente Child:<br/>
+      {props.saludo} {props.nombre} {props.apellido}</h1></div>);
+
+  }
 
 export default withRouter(Child);//Se envuelve el componente Child en su HOC
